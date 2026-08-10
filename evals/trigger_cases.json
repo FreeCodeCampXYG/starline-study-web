@@ -1,0 +1,32 @@
+{
+  "recommended_threshold": 0.34,
+  "description_required_concepts": ["source", "webpage", "study"],
+  "positive_concepts": {
+    "source": ["txt", "ppt", "pptx", "video link", "video url", "transcript", "slides", "courseware", "材料", "课件", "视频链接", "字幕"],
+    "webpage": ["webpage", "website", "html", "网页", "专题页"],
+    "study": ["study note", "learning note", "study guide", "学习笔记", "复习", "学习专题"],
+    "illustrated": ["illustrated", "visual", "图文", "图文并茂", "配图"],
+    "analysis": ["analyze", "summarize", "synthesize", "分析", "总结", "综合", "提炼"]
+  },
+  "negative_patterns": ["不要网页", "不要分析", "不需要分析", "只要摘要", "只转录", "只做字幕", "制作ppt", "生成视频", "ordinary landing page", "transcription only", "slides only"],
+  "should_trigger": [
+    {"text": "把客户传来的 txt 和 ppt 分析总结，做成图文并茂的网页学习笔记", "family": "mixed_cn"},
+    {"text": "分析这个公开视频链接，保留时间戳，生成 HTML 学习专题页", "family": "video_cn"},
+    {"text": "把这份课件整理成适合新人复习的网页笔记，配知识结构图", "family": "deck_cn"},
+    {"text": "Turn this PPTX and transcript into an illustrated HTML study guide", "family": "mixed_en"},
+    {"text": "Synthesize these video URLs and TXT notes into a learning-note website with citations", "family": "urls_en"},
+    {"text": "综合三份培训材料，做成有来源页码和回忆题的图文专题页", "family": "multi_source_cn"}
+  ],
+  "should_not_trigger": [
+    {"text": "给产品做一个 ordinary landing page，不需要分析资料", "family": "ordinary_web"},
+    {"text": "只要摘要这个 TXT，不要网页", "family": "summary_only"},
+    {"text": "帮我制作 PPT 演示稿", "family": "slide_creation"},
+    {"text": "下载这个付费视频并生成字幕", "family": "protected_download"},
+    {"text": "把这个访谈逐字转录，transcription only", "family": "transcription_only"}
+  ],
+  "near_neighbor": [
+    {"text": "把现有网页改得更好看，但不要分析课件", "family": "web_polish"},
+    {"text": "给这份课程内容设计学习计划，不用生成 HTML", "family": "study_plan"},
+    {"text": "把 PPT 转成网页幻灯片，slides only", "family": "ppt_to_slides"}
+  ]
+}

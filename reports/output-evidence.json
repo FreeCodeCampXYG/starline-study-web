@@ -1,0 +1,15 @@
+{
+  "checked_at": "2026-08-11",
+  "ok": true,
+  "artifact": "reports/sample-note.html",
+  "checks": {
+    "title_present": true,
+    "active_recall_present": true,
+    "source_locator_present": true,
+    "javascript_url_hits": 0,
+    "unit_tests": "3 passed"
+  },
+  "provider_backed_video_run": "missing evidence",
+  "learner_human_review": "missing evidence",
+  "cross_browser_human_review": "missing evidence"
+}
