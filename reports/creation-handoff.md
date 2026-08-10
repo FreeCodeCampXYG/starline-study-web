@@ -1,10 +1,10 @@
-# Creation Handoff — starline-study-web 1.0.3
+# Creation Handoff — starline-study-web 1.0.4
 
 ## Result
 
-Production-mode skill for turning TXT, PPTX and public video sources into a source-grounded illustrated HTML learning note. Prepared for the first public release under `FreeCodeCampXYG/starline-study-web`; remote evidence remains missing until the governed release gates complete.
+Production-mode skill for turning TXT, PPTX and public video sources into a source-grounded illustrated HTML learning note. Public v1.0.3 release evidence passed under `FreeCodeCampXYG/starline-study-web`; v1.0.4 removes transient Python caches and reruns the governed release gates.
 
-Version 1.0.3 removes developer-specific absolute paths from documentation and generated source packets. Validation commands now resolve the current Skill root and allow `STARLINE_META_SKILL_ROOT` to override a nonstandard meta-skill installation.
+Version 1.0.4 preserves the path-portability work from v1.0.3 and removes Python runtime caches from the public package. Validation commands resolve the current Skill root and allow `STARLINE_META_SKILL_ROOT` to override a nonstandard meta-skill installation.
 
 ## Reference skills studied
 
@@ -32,4 +32,4 @@ Catalog signals and limitations are recorded in `reports/prior-art-research.md`;
 
 ## Verification and limits
 
-Local validation, trigger evaluation, script tests, direct-install entrypoint inspection and sample rendering passed. Git feature-branch and clean remote-install gates were not applicable to this non-published local package and remain missing evidence. Live transcript retrieval, image licensing review on a real customer job, cross-browser review and learner evaluation also remain missing evidence. The skill never publishes, deploys, downloads protected media or writes outside the scoped output directory without explicit authorization.
+Local validation, trigger evaluation, script tests, direct-install entrypoint inspection and sample rendering passed. Public v1.0.3 feature-branch, PR, Release, discovery and isolated-install gates passed; v1.0.4 reruns them after cache cleanup. Live transcript retrieval, image licensing review on a real customer job, cross-browser review and learner evaluation remain missing evidence. The skill never publishes, deploys, downloads protected media or writes outside the scoped output directory without explicit authorization.

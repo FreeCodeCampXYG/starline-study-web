@@ -6,5 +6,5 @@
   "root_entrypoint_exists": true,
   "nested_skill_entrypoints": [],
   "package_validation": "pass with zero warnings",
-  "remote_clean_install": "missing evidence; publication was not requested"
+  "remote_clean_install": "v1.0.3 passed public discovery and isolated installation; v1.0.4 reruns the same release gate"
 }

@@ -3,7 +3,7 @@
   "generated_at": "2026-08-11",
   "package": {
     "name": "starline-study-web",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "owner": "Starline",
     "maturity_tier": "production",
     "lifecycle_stage": "new",
