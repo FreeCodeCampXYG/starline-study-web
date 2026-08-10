@@ -1,0 +1,182 @@
+{
+  "schema_version": "2.0.0-starline-lite",
+  "generated_at": "2026-08-11",
+  "package": {
+    "name": "starline-study-web",
+    "version": "1.0.3",
+    "owner": "Starline",
+    "maturity_tier": "production",
+    "lifecycle_stage": "new",
+    "upstream_inspiration": "https://github.com/opensquilla/opensquilla/tree/main/src/opensquilla/skills/bundled/AwesomeWebpageMetaSkill",
+    "upstream_sync": {}
+  },
+  "intent": {
+    "description": "Analyze one or more learning sources supplied as TXT files, PPT/PPTX decks, or public video links, synthesize a source-grounded study note, and create a responsive illustrated HTML learning webpage. Use when the user asks to turn text, slides, courseware, a talk, a lecture, a video URL, or mixed learning materials into 图文学习笔记, 网页笔记, 学习专题页, illustrated study notes, or a study-note website. Do not use for ordinary webpage design without source analysis, verbatim transcription only, slide creation, video production, or unsupported claims about inaccessible media.\n",
+    "job_to_be_done": "Convert customer-provided TXT, PPTX, and public video links into a source-grounded illustrated HTML learning note.",
+    "target_users": [
+      "learners",
+      "trainers",
+      "knowledge workers",
+      "customer-facing content teams"
+    ],
+    "inputs": [
+      "TXT files",
+      "PPTX files",
+      "public video links",
+      "audience and depth preferences"
+    ],
+    "outputs": [
+      "source packet JSON",
+      "structured note JSON",
+      "responsive HTML learning note",
+      "local assets"
+    ],
+    "exclusions": [
+      "ordinary webpage design",
+      "verbatim transcription only",
+      "PPT creation",
+      "video production or downloading",
+      "automatic publishing"
+    ],
+    "starline_defaults": {},
+    "naming": {}
+  },
+  "triggers": {
+    "should_trigger": [
+      "把客户传来的 txt 和 ppt 分析总结，做成图文并茂的网页学习笔记",
+      "分析这个公开视频链接，保留时间戳，生成 HTML 学习专题页",
+      "把这份课件整理成适合新人复习的网页笔记，配知识结构图",
+      "Turn this PPTX and transcript into an illustrated HTML study guide",
+      "Synthesize these video URLs and TXT notes into a learning-note website with citations",
+      "综合三份培训材料，做成有来源页码和回忆题的图文专题页"
+    ],
+    "should_not_trigger": [
+      "给产品做一个 ordinary landing page，不需要分析资料",
+      "只要摘要这个 TXT，不要网页",
+      "帮我制作 PPT 演示稿",
+      "下载这个付费视频并生成字幕",
+      "把这个访谈逐字转录，transcription only"
+    ],
+    "near_neighbor": [
+      "把现有网页改得更好看，但不要分析课件",
+      "给这份课程内容设计学习计划，不用生成 HTML",
+      "把 PPT 转成网页幻灯片，slides only"
+    ]
+  },
+  "workflow": {
+    "router_rules": [
+      "只有当目标同时包含“分析学习材料”和“生成网页学习笔记”时启用。",
+      "输入可以是单一来源或混合来源；多个来源先分别提取，再跨来源综合。",
+      "`.pptx` 可用内置脚本提取；旧版 `.ppt` 需要 LibreOffice 或用户先转为 `.pptx`，不可把二进制内容当文本猜测。",
+      "视频链接必须是用户有权访问的公开内容。优先字幕/讲稿，其次页面元数据与描述；拿不到正文时必须说明证据不足，不得根据标题编造视频观点。",
+      "不为普通企业官网、落地页、PPT 制作、纯转录、纯摘要或视频下载任务触发。"
+    ],
+    "compact_workflow": [
+      "明确受众、输出语言、网页标题、深度和保存位置；用户未指定时，沿用来源语言，面向一般学习者，输出到工作区内独立目录。",
+      "建立输入清单，记录每个来源的类型、可访问性、更新时间或页码/时间戳能力。只在缺少输入本身或关键访问权限时暂停。",
+      "对本地 TXT/PPTX 运行 `scripts/extract_local_sources.py`。阅读生成的 source packet，并按 [输入分析规则](references/input-analysis.md) 处理视频链接与失败降级。生成数据只能记录文件名或相对于交付目录的 POSIX 路径，不得写入用户主目录或其他绝对路径。",
+      "先逐来源提炼，再跨来源综合。为每个重要结论保留 `[Sx:定位]`；区分来源事实、合理推断和学习建议。冲突并列呈现，不强行融合。",
+      "按学习目标组织内容：快速摘要、知识结构、核心章节、例子/类比、易错点、术语、主动回忆题和行动清单。遵循 [内容与视觉契约](references/content-contract.md)。",
+      "为每个核心章节选择有教学作用的视觉：优先复用 PPT 中相关图、制作安全的 HTML/CSS 流程图/对比图/概念图，其次使用许可清晰且带来源的图片。装饰图不得替代解释。",
+      "写出符合 `references/note-schema.example.json` 的 UTF-8 JSON，运行 `scripts/render_study_note.py` 生成 `index.html`。不得把未转义的来源 HTML 直接写进页面。",
+      "校验网页：文件存在、无 `javascript:` URL、图片路径可读、导航与移动端布局可用、所有关键结论有来源定位、无证据限制清楚可见。必要时修复后再交付。"
+    ],
+    "gate_ladder": [
+      "输入 gate：至少一个来源真实可读，且记录无法访问的来源。",
+      "证据 gate：核心结论可回溯到文件行段、幻灯片页或视频时间戳/字幕段。",
+      "学习 gate：网页不只是摘要，还包含结构、重点、主动回忆和下一步。",
+      "视觉 gate：视觉与相邻知识点直接相关，具备 alt 文本和必要图注。",
+      "页面 gate：本地打开不报错，响应式布局可读，脚本不依赖秘密或远程执行。"
+    ],
+    "output_contract": [
+      "交付一个独立目录，至少包含 `index.html`、生成页面所用的 JSON、`assets/`（如有）和 `source-packet.json`。",
+      "首页必须包含标题、来源范围、证据限制、3–7 条关键收获和章节导航。",
+      "每个核心章节包含：一句结论、解释、关键点、视觉或明确的无图理由、来源引用。",
+      "页面末尾包含术语表、主动回忆题、行动清单和来源表。",
+      "来源引用格式为 `[S1:slide 4]`、`[S2:lines 20-35]` 或 `[S3:12:30-14:05]`；无法精确定位时用 `[S3:description]` 并标为有限证据。",
+      "不嵌入 API key、Cookie、私有下载地址或受保护媒体；不自动发布、部署或上传。",
+      "`source-packet.json`、`note.json` 和 HTML 不得包含 `C:\\Users\\<name>`、`/Users/<name>`、`/home/<name>` 等用户专属绝对路径；本地资源使用相对于交付目录的 `/` 分隔路径。",
+      "当用户需要上传飞书、邮件发送或脱离资源目录分发时，运行 `scripts/pack_standalone_html.py`，把页面引用的本地图片、二维码、音频和视频转换为 Data URI。",
+      "命令：`python scripts/pack_standalone_html.py index.html --output study-note-standalone.html`。",
+      "若平台提示文件过大，使用：`python scripts/pack_standalone_html.py index.html --output study-note-lite.html --exclude-video`。轻量版保留视频封面和课程摘要，但不包含 MP4 数据。",
+      "单文件版必须保留外部资料链接为普通 HTTPS 链接，不得内嵌登录凭证、Cookie、私有下载地址或受保护媒体。",
+      "交付前检查输出文件能够独立打开，并报告文件大小。若平台上传大小受限，优先再交付一个不内嵌视频的轻量版，而不是静默删减内容。"
+    ]
+  },
+  "resources": {
+    "references": [
+      "references\\content-contract.md",
+      "references\\input-analysis.md",
+      "references\\note-schema.example.json"
+    ],
+    "scripts": [
+      "scripts\\extract_local_sources.py",
+      "scripts\\pack_standalone_html.py",
+      "scripts\\render_study_note.py"
+    ],
+    "evals": [
+      "evals\\trigger_cases.json"
+    ],
+    "reports": [
+      "reports\\creation-handoff.md",
+      "reports\\install-check.json",
+      "reports\\output-evidence.json",
+      "reports\\prior-art-research.md",
+      "reports\\sample-note.html",
+      "reports\\skill-ir.json",
+      "reports\\trigger-eval.json"
+    ]
+  },
+  "portability": {
+    "canonical_format": "agent-skills",
+    "adapter_targets": [
+      "openai",
+      "claude",
+      "generic",
+      "agent-skills-compatible",
+      "vscode"
+    ],
+    "activation": {
+      "mode": "automatic-or-manual",
+      "paths": []
+    },
+    "execution": {
+      "context": "inline",
+      "shell": "powershell-or-bash"
+    },
+    "trust": {
+      "source_tier": "local",
+      "remote_inline_execution": "forbid",
+      "remote_media_policy": "read public metadata or captions only; never bypass access controls",
+      "generated_claims": "source-grounded"
+    },
+    "permissions": {
+      "network": "read-only access to user-supplied public video pages, captions, and licensed image sources",
+      "file_read": "user-supplied TXT/PPTX and explicitly scoped workspace assets",
+      "file_write": "one user-scoped learning-note output directory",
+      "subprocess": "bundled Python extraction, rendering, validation, and tests",
+      "publishing": "forbidden unless explicitly requested"
+    },
+    "degradation": {
+      "no_network": "process local sources and mark video links inaccessible",
+      "no_transcript": "use page description only as limited evidence or request transcript",
+      "no_images": "render semantic HTML/CSS diagrams and disclose missing image assets",
+      "legacy_ppt": "request PPTX conversion or use available LibreOffice"
+    }
+  },
+  "gates": {
+    "production": [
+      "at least one readable source",
+      "source locator for every core claim",
+      "visual relevance and alt text",
+      "passing trigger eval and script tests",
+      "responsive local HTML delivery"
+    ]
+  },
+  "evidence_boundary": {
+    "generated_reports_are_evidence": true,
+    "planned_work_is_evidence": false,
+    "missing_external_or_human_evidence_label": "missing evidence",
+    "public_claim_policy": "claim only what local validation, install proof, human review, or provider-backed evidence actually supports"
+  }
+}

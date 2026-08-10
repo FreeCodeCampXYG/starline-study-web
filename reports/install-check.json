@@ -1,0 +1,10 @@
+{
+  "checked_at": "2026-08-11",
+  "ok": true,
+  "method": "direct local installation in Codex skills directory",
+  "entrypoint": "SKILL.md",
+  "root_entrypoint_exists": true,
+  "nested_skill_entrypoints": [],
+  "package_validation": "pass with zero warnings",
+  "remote_clean_install": "missing evidence; publication was not requested"
+}

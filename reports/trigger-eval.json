@@ -1,0 +1,216 @@
+{
+  "ok": true,
+  "threshold": 0.34,
+  "description_concepts": [
+    "analysis",
+    "illustrated",
+    "source",
+    "study",
+    "webpage"
+  ],
+  "missing_description_concepts": [],
+  "summary": {
+    "total": 14,
+    "passed": 14,
+    "false_positive": 0,
+    "false_negative": 0,
+    "pass_rate": 1.0
+  },
+  "failures": [],
+  "results": {
+    "should_trigger": [
+      {
+        "prompt": "把客户传来的 txt 和 ppt 分析总结，做成图文并茂的网页学习笔记",
+        "family": "mixed_cn",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 1.0,
+        "matched_concepts": [
+          "analysis",
+          "illustrated",
+          "source",
+          "study",
+          "webpage"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "分析这个公开视频链接，保留时间戳，生成 HTML 学习专题页",
+        "family": "video_cn",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.8,
+        "matched_concepts": [
+          "analysis",
+          "source",
+          "study",
+          "webpage"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "把这份课件整理成适合新人复习的网页笔记，配知识结构图",
+        "family": "deck_cn",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.6,
+        "matched_concepts": [
+          "source",
+          "study",
+          "webpage"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "Turn this PPTX and transcript into an illustrated HTML study guide",
+        "family": "mixed_en",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.8,
+        "matched_concepts": [
+          "illustrated",
+          "source",
+          "study",
+          "webpage"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "Synthesize these video URLs and TXT notes into a learning-note website with citations",
+        "family": "urls_en",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.8,
+        "matched_concepts": [
+          "analysis",
+          "source",
+          "study",
+          "webpage"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "综合三份培训材料，做成有来源页码和回忆题的图文专题页",
+        "family": "multi_source_cn",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.8,
+        "matched_concepts": [
+          "analysis",
+          "illustrated",
+          "source",
+          "webpage"
+        ],
+        "negative_pattern": null
+      }
+    ],
+    "should_not_trigger": [
+      {
+        "prompt": "给产品做一个 ordinary landing page，不需要分析资料",
+        "family": "ordinary_web",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.2,
+        "matched_concepts": [
+          "analysis"
+        ],
+        "negative_pattern": "不需要分析"
+      },
+      {
+        "prompt": "只要摘要这个 TXT，不要网页",
+        "family": "summary_only",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.4,
+        "matched_concepts": [
+          "source",
+          "webpage"
+        ],
+        "negative_pattern": "不要网页"
+      },
+      {
+        "prompt": "帮我制作 PPT 演示稿",
+        "family": "slide_creation",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.2,
+        "matched_concepts": [
+          "source"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "下载这个付费视频并生成字幕",
+        "family": "protected_download",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.2,
+        "matched_concepts": [
+          "source"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "把这个访谈逐字转录，transcription only",
+        "family": "transcription_only",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.0,
+        "matched_concepts": [],
+        "negative_pattern": "transcription only"
+      }
+    ],
+    "near_neighbor": [
+      {
+        "prompt": "把现有网页改得更好看，但不要分析课件",
+        "family": "web_polish",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.6,
+        "matched_concepts": [
+          "analysis",
+          "source",
+          "webpage"
+        ],
+        "negative_pattern": "不要分析"
+      },
+      {
+        "prompt": "给这份课程内容设计学习计划，不用生成 HTML",
+        "family": "study_plan",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.2,
+        "matched_concepts": [
+          "webpage"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "把 PPT 转成网页幻灯片，slides only",
+        "family": "ppt_to_slides",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.4,
+        "matched_concepts": [
+          "source",
+          "webpage"
+        ],
+        "negative_pattern": "slides only"
+      }
+    ]
+  }
+}
