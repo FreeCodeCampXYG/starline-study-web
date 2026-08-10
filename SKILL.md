@@ -4,7 +4,7 @@ description: |
   Analyze one or more learning sources supplied as TXT files, PPT/PPTX decks, or public video links, synthesize a source-grounded study note, and create a responsive illustrated HTML learning webpage. Use when the user asks to turn text, slides, courseware, a talk, a lecture, a video URL, or mixed learning materials into 图文学习笔记, 网页笔记, 学习专题页, illustrated study notes, or a study-note website. Do not use for ordinary webpage design without source analysis, verbatim transcription only, slide creation, video production, or unsupported claims about inaccessible media.
 metadata:
   author: Starline
-  version: "1.0.3"
+  version: "1.0.4"
 ---
 
 # Starline Study Web
