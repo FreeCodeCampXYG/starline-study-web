@@ -2,7 +2,7 @@
   "recommended_threshold": 0.34,
   "description_required_concepts": ["source", "webpage", "study"],
   "positive_concepts": {
-    "source": ["txt", "ppt", "pptx", "video link", "video url", "transcript", "slides", "courseware", "材料", "课件", "视频链接", "字幕"],
+    "source": ["txt", "pdf", "ppt", "pptx", "video link", "video url", "transcript", "slides", "courseware", "材料", "文档", "课件", "视频链接", "字幕"],
     "webpage": ["webpage", "website", "html", "网页", "专题页"],
     "study": ["study note", "learning note", "study guide", "学习笔记", "复习", "学习专题"],
     "illustrated": ["illustrated", "visual", "图文", "图文并茂", "配图"],
@@ -16,6 +16,7 @@
     {"text": "Turn this PPTX and transcript into an illustrated HTML study guide", "family": "mixed_en"},
     {"text": "Synthesize these video URLs and TXT notes into a learning-note website with citations", "family": "urls_en"},
     {"text": "综合三份培训材料，做成有来源页码和回忆题的图文专题页", "family": "multi_source_cn"}
+    ,{"text": "把这份图片型 PDF 识别后按二八法则批注，做成能按标签和页码定位的 HTML 学习页", "family": "pdf_visual_cn"}
   ],
   "should_not_trigger": [
     {"text": "给产品做一个 ordinary landing page，不需要分析资料", "family": "ordinary_web"},

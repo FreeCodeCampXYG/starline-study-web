@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""提取 TXT 和 PPTX 为带定位信息的 source packet。"""
+"""提取 TXT、PPTX 和 PDF 为带定位信息的 source packet。"""
 
 from __future__ import annotations
 
@@ -120,10 +120,63 @@ def extract_pptx(
     }
 
 
+def extract_pdf(
+    path: Path,
+    source_id: str,
+    asset_dir: Path | None,
+    packet_dir: Path | None = None,
+) -> dict[str, object]:
+    """提取 PDF 逐页文字；图片型页面可同时导出整页主图供视觉识别。"""
+    try:
+        from pypdf import PdfReader
+    except ImportError as exc:
+        raise ValueError("提取 PDF 需要安装 pypdf：python -m pip install pypdf") from exc
+
+    reader = PdfReader(path)
+    renderer = None
+    render_module = None
+    if asset_dir:
+        try:
+            import pymupdf
+            render_module = pymupdf
+            renderer = pymupdf.open(path)
+        except ImportError:
+            renderer = None
+    segments: list[dict[str, object]] = []
+    assets: list[str] = []
+    for page_number, page in enumerate(reader.pages, 1):
+        text = (page.extract_text() or "").strip()
+        page_asset = ""
+        if asset_dir and renderer is not None:
+            target = asset_dir / f"{source_id.lower()}-page-{page_number:03d}.jpg"
+            target.parent.mkdir(parents=True, exist_ok=True)
+            rendered_page = renderer[page_number - 1]
+            pixmap = rendered_page.get_pixmap(matrix=render_module.Matrix(1.5, 1.5), alpha=False)
+            pixmap.save(target)
+            page_asset = portable_resource_path(target, packet_dir or target.parent)
+            assets.append(page_asset)
+        segments.append({
+            "locator": f"page {page_number}",
+            "text": text,
+            "page_asset": page_asset,
+            "needs_visual_review": not bool(text),
+        })
+    return {
+        "id": source_id,
+        "type": "pdf",
+        "title": path.stem,
+        "path": path.name,
+        "page_count": len(reader.pages),
+        "segments": segments,
+        "assets": assets,
+        "visual_rendering": "full_page" if renderer is not None else "unavailable",
+    }
+
+
 def main() -> None:
     """解析命令行参数并输出 source packet JSON。"""
-    parser = argparse.ArgumentParser(description="提取 TXT/PPTX 内容并保留行号或幻灯片页码。")
-    parser.add_argument("inputs", nargs="+", help="一个或多个 .txt/.pptx 文件")
+    parser = argparse.ArgumentParser(description="提取 TXT/PPTX/PDF 内容并保留行号或页码。")
+    parser.add_argument("inputs", nargs="+", help="一个或多个 .txt/.pptx/.pdf 文件")
     parser.add_argument("--output", "-o", required=True, help="输出 JSON 路径")
     parser.add_argument("--asset-dir", help="可选：导出 PPTX 内媒体的目录")
     args = parser.parse_args()
@@ -142,10 +195,12 @@ def main() -> None:
             sources.append(extract_txt(path, source_id))
         elif suffix == ".pptx":
             sources.append(extract_pptx(path, source_id, asset_dir, packet_dir))
+        elif suffix == ".pdf":
+            sources.append(extract_pdf(path, source_id, asset_dir, packet_dir))
         elif suffix == ".ppt":
             raise SystemExit(f"不支持旧版 .ppt：{path}；请先转换为 .pptx")
         else:
-            raise SystemExit(f"不支持的输入类型：{path.suffix}（仅支持 .txt/.pptx）")
+            raise SystemExit(f"不支持的输入类型：{path.suffix}（仅支持 .txt/.pptx/.pdf）")
 
     output.parent.mkdir(parents=True, exist_ok=True)
     payload = {"schema_version": "1.0", "sources": sources}

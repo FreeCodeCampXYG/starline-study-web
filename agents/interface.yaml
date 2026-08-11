@@ -1,9 +1,10 @@
 interface:
   display_name: "Starline Study Web"
-  short_description: "将 TXT、PPTX 和公开视频整理为可追溯的图文网页学习笔记"
-  default_prompt: "Use $starline-study-web to inspect the supplied TXT, PPT/PPTX, or public video links, preserve line, slide, transcript, and timestamp provenance, synthesize an audience-appropriate study note, plan only instructionally useful visuals, and create a responsive local HTML page with summary, concepts, examples, glossary, recall questions, actions, sources, and visible evidence limits. Never invent inaccessible video content, download protected media, or publish customer material without explicit authorization."
+  short_description: "将 TXT、PDF、PPTX 和公开视频整理为带页码标签的图文学习网页"
+  default_prompt: "Use $starline-study-web to inspect supplied TXT, PDF, PPT/PPTX, or public video links; preserve line, page, slide, transcript, and timestamp provenance; create book, section, and page tags; mark the core 20 percent; and build a searchable responsive HTML study page with source-page preview and visible evidence limits. Never invent inaccessible content, download protected media, or publish customer material without explicit authorization."
   examples:
     - "把这份培训 PPT 做成图文学习笔记网页"
+    - "识别这份图片型 PDF，按二八法则批注并生成可按标签定位的网页"
     - "综合 TXT 和公开视频链接，生成带时间戳引用的学习专题页"
     - "Turn this deck and transcript into an illustrated HTML study guide"
 compatibility:
@@ -22,7 +23,7 @@ compatibility:
     generated_claims: "source-grounded"
   permissions:
     network: "read-only access to user-supplied public video pages, captions, and licensed image sources"
-    file_read: "user-supplied TXT/PPTX and explicitly scoped workspace assets"
+    file_read: "user-supplied TXT/PDF/PPTX and explicitly scoped workspace assets"
     file_write: "one user-scoped learning-note output directory"
     subprocess: "bundled Python extraction, rendering, validation, and tests"
     publishing: "forbidden unless explicitly requested"

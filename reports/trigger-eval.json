@@ -10,8 +10,8 @@
   ],
   "missing_description_concepts": [],
   "summary": {
-    "total": 14,
-    "passed": 14,
+    "total": 15,
+    "passed": 15,
     "false_positive": 0,
     "false_negative": 0,
     "pass_rate": 1.0
@@ -104,6 +104,19 @@
         "matched_concepts": [
           "analysis",
           "illustrated",
+          "source",
+          "webpage"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "把这份图片型 PDF 识别后按二八法则批注，做成能按标签和页码定位的 HTML 学习页",
+        "family": "pdf_visual_cn",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.4,
+        "matched_concepts": [
           "source",
           "webpage"
         ],

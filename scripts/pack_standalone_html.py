@@ -23,6 +23,10 @@ CSS_URL_RE = re.compile(
     r"(?P<prefix>url\(\s*)(?P<quote>['\"]?)(?P<url>.*?)(?P=quote)(?P<suffix>\s*\))",
     re.IGNORECASE,
 )
+QUOTED_RESOURCE_RE = re.compile(
+    r"(?P<quote>['\"])(?P<url>[^'\"<>]+\.(?:png|jpe?g|webp|gif|svg|mp3|mp4|woff2?))(?P=quote)",
+    re.IGNORECASE,
+)
 VIDEO_RE = re.compile(r"<video\b(?P<attrs>[^>]*)>.*?</video>", re.IGNORECASE | re.DOTALL)
 POSTER_RE = re.compile(r"\bposter\s*=\s*(?P<quote>['\"])(?P<url>.*?)(?P=quote)", re.IGNORECASE)
 SKIP_SCHEMES = {"http", "https", "data", "mailto", "tel", "javascript"}
@@ -49,6 +53,8 @@ def local_path(url: str, base_dir: Path) -> Path | None:
 def to_data_uri(path: Path) -> str:
     """读取本地文件并转换为带 MIME 类型的 Base64 Data URI。"""
     mime, _ = mimetypes.guess_type(path.name)
+    if path.suffix.lower() == ".webp":
+        mime = "image/webp"
     mime = mime or "application/octet-stream"
     payload = base64.b64encode(path.read_bytes()).decode("ascii")
     return f"data:{mime};base64,{payload}"
@@ -111,6 +117,10 @@ def pack_html(source: Path, output: Path, exclude_video: bool = False) -> tuple[
 
     html = ATTRIBUTE_RE.sub(replace_attribute, html)
     html = CSS_URL_RE.sub(replace_css_url, html)
+    html = QUOTED_RESOURCE_RE.sub(
+        lambda match: f'{match.group("quote")}{embed(match.group("url"))}{match.group("quote")}',
+        html,
+    )
     html = HREF_RE.sub(replace_local_href, html)
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(html, encoding="utf-8", newline="")

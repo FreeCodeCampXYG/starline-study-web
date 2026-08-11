@@ -1,6 +1,6 @@
 {
   "name": "starline-study-web",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "owner": "Starline",
   "updated_at": "2026-08-11",
   "status": "active",
@@ -10,9 +10,9 @@
   "review_cadence": "quarterly",
   "upstream_inspiration": "https://github.com/opensquilla/opensquilla/tree/main/src/opensquilla/skills/bundled/AwesomeWebpageMetaSkill",
   "intent": {
-    "job_to_be_done": "Convert customer-provided TXT, PPTX, and public video links into a source-grounded illustrated HTML learning note.",
+    "job_to_be_done": "Convert customer-provided TXT, PDF, PPTX, and public video links into a source-grounded, page-locatable illustrated HTML learning note.",
     "target_users": ["learners", "trainers", "knowledge workers", "customer-facing content teams"],
-    "inputs": ["TXT files", "PPTX files", "public video links", "audience and depth preferences"],
+    "inputs": ["TXT files", "PDF files", "PPTX files", "public video links", "audience and depth preferences"],
     "outputs": ["source packet JSON", "structured note JSON", "responsive HTML learning note", "local assets"],
     "exclusions": ["ordinary webpage design", "verbatim transcription only", "PPT creation", "video production or downloading", "automatic publishing"]
   },

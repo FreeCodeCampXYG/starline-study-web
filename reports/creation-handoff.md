@@ -1,8 +1,8 @@
-# Creation Handoff — starline-study-web 1.0.4
+# Creation Handoff — starline-study-web 1.1.0
 
 ## Result
 
-Production-mode skill for turning TXT, PPTX and public video sources into a source-grounded illustrated HTML learning note. Public v1.0.3 release evidence passed under `FreeCodeCampXYG/starline-study-web`; v1.0.4 removes transient Python caches and reruns the governed release gates.
+Production-mode skill for turning TXT, PDF, PPTX and public video sources into a source-grounded, page-locatable illustrated HTML learning note. Version 1.1.0 adds image-PDF review markers, three-level tags, 80/20 annotations, search/filter and source-page preview. This iteration is local only and is not published.
 
 Version 1.0.4 preserves the path-portability work from v1.0.3 and removes Python runtime caches from the public package. Validation commands resolve the current Skill root and allow `STARLINE_META_SKILL_ROOT` to override a nonstandard meta-skill installation.
 

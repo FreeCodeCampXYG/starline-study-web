@@ -52,6 +52,22 @@ class ExtractTests(unittest.TestCase):
             self.assertEqual(extractor.portable_resource_path(asset, delivery), "assets/diagram.png")
             self.assertEqual(extractor.portable_resource_path(external, delivery), "external.png")
 
+    def test_pdf_text_keeps_page_locator(self) -> None:
+        try:
+            from pypdf import PdfWriter
+        except ImportError:
+            self.skipTest("未安装 pypdf")
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "讲义.pdf"
+            writer = PdfWriter()
+            writer.add_blank_page(width=320, height=180)
+            with path.open("wb") as stream:
+                writer.write(stream)
+            result = extractor.extract_pdf(path, "S1", None)
+            self.assertEqual(result["page_count"], 1)
+            self.assertEqual(result["segments"][0]["locator"], "page 1")
+            self.assertTrue(result["segments"][0]["needs_visual_review"])
+
     def test_package_contains_no_developer_specific_home_path(self) -> None:
         extensions = {".md", ".json", ".yaml", ".yml", ".py", ".html"}
         windows_home = "C:" + "\\Users\\" + "xia" + "oy"
@@ -109,6 +125,21 @@ class PackTests(unittest.TestCase):
             self.assertIn("data:image/png;base64,", page)
             self.assertNotIn("video/mp4", page)
             self.assertIn("轻量版未内嵌视频", page)
+
+    def test_dynamic_json_image_path_is_embedded(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            asset = root / "assets" / "page-001.webp"
+            asset.parent.mkdir()
+            asset.write_bytes(b"webp")
+            source = root / "index.html"
+            output = root / "standalone.html"
+            source.write_text('<script type="application/json">{"image":"assets/page-001.webp"}</script>', encoding="utf-8")
+            count, _, _ = packer.pack_html(source, output)
+            page = output.read_text(encoding="utf-8")
+            self.assertEqual(count, 1)
+            self.assertIn("data:image/webp;base64,", page)
+            self.assertNotIn("assets/page-001.webp", page)
 
 
 if __name__ == "__main__":
