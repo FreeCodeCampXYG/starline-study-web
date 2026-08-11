@@ -1,5 +1,6 @@
 interface:
   display_name: "Starline Study Web"
+  author: "墨点星痕 (starline)"
   short_description: "将 TXT、PDF、PPTX 和公开视频整理为带页码标签的图文学习网页"
   default_prompt: "Use $starline-study-web to inspect supplied TXT, PDF, PPT/PPTX, or public video links; preserve line, page, slide, transcript, and timestamp provenance; create book, section, and page tags; mark the core 20 percent; and build a searchable responsive HTML study page with source-page preview and visible evidence limits. Never invent inaccessible content, download protected media, or publish customer material without explicit authorization."
   examples:
