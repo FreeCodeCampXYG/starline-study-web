@@ -24,6 +24,7 @@ def load_module(name: str, path: Path):
 extractor = load_module("extract_local_sources", ROOT / "scripts" / "extract_local_sources.py")
 renderer = load_module("render_study_note", ROOT / "scripts" / "render_study_note.py")
 packer = load_module("pack_standalone_html", ROOT / "scripts" / "pack_standalone_html.py")
+bookmarker = load_module("add_pdf_bookmarks", ROOT / "scripts" / "add_pdf_bookmarks.py")
 
 
 class ExtractTests(unittest.TestCase):
@@ -140,6 +141,30 @@ class PackTests(unittest.TestCase):
             self.assertEqual(count, 1)
             self.assertIn("data:image/webp;base64,", page)
             self.assertNotIn("assets/page-001.webp", page)
+
+
+class BookmarkTests(unittest.TestCase):
+    """覆盖压缩 PDF 的章节书签重建。"""
+
+    def test_add_bookmarks_keeps_pages_and_targets(self) -> None:
+        from pypdf import PdfReader, PdfWriter
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            source, output = root / "source.pdf", root / "output.pdf"
+            writer = PdfWriter()
+            for _ in range(3):
+                writer.add_blank_page(width=320, height=180)
+            with source.open("wb") as stream:
+                writer.write(stream)
+            bookmarker.add_bookmarks(source, output, [
+                {"title": "导读", "page": 1},
+                {"title": "方法", "page": 2, "children": [{"title": "提示词", "page": 3}]},
+            ])
+            reader = PdfReader(output)
+            self.assertEqual(len(reader.pages), 3)
+            self.assertEqual(reader.outline[0].title, "导读")
+            self.assertEqual(reader.outline[1].title, "方法")
+            self.assertEqual(reader.outline[2][0].title, "提示词")
 
 
 if __name__ == "__main__":
