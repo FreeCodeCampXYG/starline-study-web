@@ -4,7 +4,7 @@ description: |
   Analyze learning sources supplied as TXT, PDF, PPT/PPTX, or public video links, synthesize source-grounded tagged study notes, and create a responsive illustrated HTML learning webpage with page-level location. Use for 图文学习笔记, PDF/PPT课程整理, 网页笔记, 学习专题页, illustrated study notes, or a searchable study-note website. Do not use for ordinary webpage design without source analysis, verbatim transcription only, slide creation, video production, or unsupported claims about inaccessible media.
 metadata:
   author: "墨点星痕 (starline)"
-  version: "1.2.0"
+  version: "1.2.1"
 ---
 
 # Starline Study Web
@@ -21,6 +21,7 @@ metadata:
 - `.pptx` 可用内置脚本提取；旧版 `.ppt` 需要 LibreOffice 或用户先转为 `.pptx`，不可把二进制内容当文本猜测。
 - `.pdf` 先提取逐页文本与页码；图片型页面导出主图并标记 `needs_visual_review`，必须经过 OCR 或视觉核验，不得把空文本页当作空白页。
 - 视频链接必须是用户有权访问的公开内容。优先字幕/讲稿，其次页面元数据与描述；拿不到正文时必须说明证据不足，不得根据标题编造视频观点。
+- 用户明确要求把学习网页部署到 GitHub Pages 或其他公开站点时，启用“公开发布网页 gate”：在发布前检查署名角色、内容来源、素材许可、最小必要引用、联系删除渠道和页面交互回归。这里只规定网页成品要求，不自动执行仓库创建、推送或部署。
 - 不为普通企业官网、落地页、PPT 制作、纯转录、纯摘要或视频下载任务触发。
 
 ## Compact Workflow
@@ -30,9 +31,9 @@ metadata:
 3. 对本地 TXT/PPTX/PDF 运行 `scripts/extract_local_sources.py`。PDF 图片页按 [PDF分析与定位规则](references/pdf-analysis.md) 处理；阅读 source packet，并按 [输入分析规则](references/input-analysis.md) 处理视频链接与失败降级。生成数据只能记录文件名或相对于交付目录的 POSIX 路径，不得写入用户主目录或其他绝对路径。
 4. 先逐来源提炼，再跨来源综合。为每个重要结论保留 `[Sx:定位]`；区分来源事实、合理推断和学习建议。冲突并列呈现，不强行融合。
 5. 先从用户任务而非资料目录设计阅读路径：快速开始、任务路线、核心阅读线、完整证据库。再组织快速摘要、知识结构、例子/类比、易错点、术语、主动回忆题和行动清单。为长文档建立书级、章节级、页级三级标签，并标记 `核心20%`、`支撑80%`、`行动项`、`案例`、`待验证`。遵循 [内容与视觉契约](references/content-contract.md) 和 [交互与体验契约](references/visual-ux-contract.md)。
-6. 为每个核心章节选择有教学作用的视觉：优先复用 PPT 中相关图、制作安全的 HTML/CSS 流程图/对比图/概念图，其次使用许可清晰且带来源的图片。装饰图不得替代解释。
+6. 为每个核心章节选择有教学作用的视觉：优先复用用户有权使用的 PPT 相关图、制作安全的 HTML/CSS 流程图/对比图/概念图，其次使用许可清晰且带来源的图片。装饰图不得替代解释。公开分发前区分网页代码作者、内容作者和素材权利人，并按 [内容与视觉契约](references/content-contract.md) 补齐署名、来源、授权边界和必要的正版入口。
 7. 写出符合 `references/note-schema.example.json` 的 UTF-8 JSON，运行 `scripts/render_study_note.py` 生成 `index.html`。不得把未转义的来源 HTML 直接写进页面。
-8. 校验网页：文件存在、无 `javascript:` URL、图片路径可读、导航与移动端布局可用、所有关键结论有来源定位、无证据限制清楚可见。使用真实设备视口验证横向溢出、任务筛选、弹层、阅读进度和收藏持久化；命令行窗口尺寸截图不能代替设备视口。必要时修复后再交付。
+8. 校验网页：文件存在、无 `javascript:` URL、图片路径可读、导航与移动端布局可用、所有关键结论有来源定位、无证据限制清楚可见。使用真实设备视口验证横向溢出、任务筛选、弹层打开及各关闭路径、阅读进度和收藏持久化；检查页面自身脚本无递归或未捕获异常，并按 [交互与体验契约](references/visual-ux-contract.md) 区分网页错误与浏览器扩展错误。命令行窗口尺寸截图不能代替设备视口。必要时修复后再交付。
 
 ## Decision Points
 
@@ -44,6 +45,8 @@ metadata:
 - 来源过长：分块提取后先做分块摘要，再合并；保留块与页码/时间戳映射。
 - 来源冲突：建立“不同来源的说法”区块，列明各自证据，不替用户裁决。
 - 找不到合适图片：使用结构化 HTML/CSS 图示或明确的占位说明，不抓取来源不明素材。
+- 用户要求把包含第三方课件或书籍内容的网页部署到 GitHub Pages 或其他公开站点：免责声明不能替代授权。优先取得书面许可；缺少许可时减少完整页面和连续大段摘录，只保留学习所需的最小引用、清晰来源和删除联系渠道，不得宣称“已经避免侵权”或“获得授权”。
+- 公开部署时用户提供购书链接或二维码：可增加“支持正版”区块，但只按用户确认的信息展示；无法证明渠道身份时不得标成“官方”“唯一”或“作者指定”。二维码必须有可读替代文字，链接使用普通 HTTPS URL。普通本地学习页不主动添加购买引导。
 
 ## Gate Ladder
 
@@ -52,6 +55,7 @@ metadata:
 3. 学习 gate：网页不只是摘要，还包含结构、重点、主动回忆和下一步。
 4. 视觉 gate：视觉与相邻知识点直接相关，具备 alt 文本和必要图注。
 5. 页面 gate：本地打开不报错，响应式布局可读，脚本不依赖秘密或远程执行。
+6. 公开发布网页 gate：仅在 GitHub Pages 或其他公开站点交付时启用；明确区分代码署名、内容作者与素材权利，确保代码许可不自动覆盖课件图片、文字摘录、整理数据、二维码或第三方标识，并完成所有弹层关闭路径和页面控制台回归。
 
 ## Output Contract
 
@@ -62,6 +66,8 @@ metadata:
 - 若交付压缩版 PDF，必须同时验证页数、章节书签标题和书签目标页。
 - 每个核心章节包含：一句结论、解释、关键点、视觉或明确的无图理由、来源引用。
 - 页面末尾包含术语表、主动回忆题、行动清单和来源表。
+- 署名必须按角色表达，例如 `Code by starline` 与“内容来源/内容作者”分开；不得擅自增加学校、机构、联合作者或官方背书。
+- 使用开源代码许可时采用分层授权：只许可原创代码，并明确排除来源图片、文字摘录、内容数据、二维码和第三方标识。侵权联系与删除说明可以降低误解，但不能表述为已获得授权或法律免责。
 - 来源引用格式为 `[S1:slide 4]`、`[S2:lines 20-35]` 或 `[S3:12:30-14:05]`；无法精确定位时用 `[S3:description]` 并标为有限证据。
 - 不嵌入 API key、Cookie、私有下载地址或受保护媒体；不自动发布、部署或上传。
 - `source-packet.json`、`note.json` 和 HTML 不得包含 `C:\Users\<name>`、`/Users/<name>`、`/home/<name>` 等用户专属绝对路径；本地资源使用相对于交付目录的 `/` 分隔路径。
