@@ -1,8 +1,8 @@
-# Creation Handoff — starline-study-web 1.2.0
+# Creation Handoff — starline-study-web 1.2.1
 
 ## Result
 
-Production-mode skill by 墨点星痕 (starline) for turning TXT, PDF, PPTX and public video sources into a task-oriented, source-grounded illustrated learning note. Version 1.2.0 adds task-first UX, local reading state, real-device-viewport interaction gates, and deterministic bookmark reconstruction for compressed PDFs. This iteration is local only and is not published.
+Production-mode skill by 墨点星痕 (starline) for turning TXT, PDF, PPTX and public video sources into a task-oriented, source-grounded illustrated learning note. Version 1.2.1 adds a GitHub Pages or public-site trigger for webpage-specific authorship and rights boundaries, plus stricter modal interaction regression and browser-extension error attribution. It does not add deployment operations. This iteration is local only and is not published.
 
 Version 1.0.4 preserves the path-portability work from v1.0.3 and removes Python runtime caches from the public package. Validation commands resolve the current Skill root and allow `STARLINE_META_SKILL_ROOT` to override a nonstandard meta-skill installation.
 
