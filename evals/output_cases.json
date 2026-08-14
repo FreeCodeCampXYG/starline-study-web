@@ -1,0 +1,37 @@
+{
+  "cases": [
+    {
+      "id": "ux-first-learning-page",
+      "prompt": "把 PPT 和转录整理成苹果与 Kimi 感觉的网页学习笔记，重视用户体验。",
+      "input_files": ["course.pptx", "transcript.md"],
+      "baseline_output": "直接按资料目录生成带大 Hero、统计卡片和多套主题的首版页面，再在末尾补做 UX 调整。",
+      "with_skill_output": "渲染前先生成体验简报，确定唯一首要任务、10 秒成功、主行动、移动端首屏和视觉禁区；研究结果以 keep/adapt/reject 进入结构决策，首版只做对照回归。",
+      "assertions": [
+        "在任何 HTML 渲染前创建 experience-brief.md",
+        "体验简报包含一个且仅一个主行动",
+        "体验简报包含 390×844 移动端首屏目标",
+        "Apple/Kimi 仅作为原则镜头，不复制品牌",
+        "首版回归能列出具体偏离而不是只说更美观"
+      ],
+      "human_notes": "需要人工判断页面是否真正降低选择负担；当前没有盲评或真人任务完成率证据。"
+    },
+    {
+      "id": "learning-loop-not-passive-summary",
+      "prompt": "把这份论文和课程转录做成以后容易复习、不容易只看完就忘的 HTML 学习页。",
+      "input_files": ["paper.pdf", "transcript.md"],
+      "baseline_output": "提供摘要、彩色重点和阅读进度，把滚动到页尾当作完成。",
+      "with_skill_output": "用 2 分钟核心线引导进入，参考答案默认折叠，要求向具体对象复述并完成真实迁移动作；给出可调整的本地复习建议，不承诺固定遗忘曲线。",
+      "assertions": [
+        "主动回忆题的答案默认折叠",
+        "复述提示指定听众、时长或必须覆盖的要点",
+        "至少一个行动能映射到真实任务或可验证产物",
+        "复习间隔明确是可调整建议而非通用最优值",
+        "本地状态可以重置且不上传",
+        "没有把阅读进度或核心20%表述成掌握度"
+      ],
+      "human_notes": "需要学习者任务测试判断问题难度与复述提示是否真正促进理解；当前只有结构与交互回归证据。"
+    }
+  ],
+  "evidence": "recorded_fixture",
+  "missing_evidence": ["provider-backed run", "human blind review", "task completion study"]
+}

@@ -1,8 +1,8 @@
-# Creation Handoff — starline-study-web 1.3.0
+# Creation Handoff — starline-study-web 1.5.0
 
 ## Result
 
-Production-mode skill by 墨点星痕 (starline) for turning TXT, PDF, PPTX and public video sources into a task-oriented, source-grounded illustrated learning note. Version 1.3.0 adds a mandatory post-generation UX optimization gate between the first working render and final validation. It starts from real learner tasks, uses current Apple guidance, Kimi's public interface and credible design skills as optional research lenses, requires concrete before/after evidence, and explicitly forbids brand imitation. It does not add deployment operations. This iteration is local only and is not published.
+Production-mode skill by 墨点星痕 (starline) for turning TXT, PDF, PPTX and public video sources into a task-oriented, source-grounded illustrated learning note. Version 1.5.0 keeps the blocking UX-first `experience-brief.md` and adds a learning-science gate: every learning page must connect a 2-minute core line, hidden-answer retrieval, a concrete teach-back prompt, a real transfer action and an adjustable spaced-review plan. The skill explicitly treats 80/20 as navigation rather than proof of mastery and forbids fixed forgetting-curve claims. This iteration is local only and is not published.
 
 Version 1.0.4 preserves the path-portability work from v1.0.3 and removes Python runtime caches from the public package. Validation commands resolve the current Skill root and allow `STARLINE_META_SKILL_ROOT` to override a nonstandard meta-skill installation.
 
@@ -12,6 +12,7 @@ Version 1.0.4 preserves the path-portability work from v1.0.3 and removes Python
 - **ai-multimodal**: learned modality-specific extraction, timestamps and explicit format failure paths; applied in `references/input-analysis.md`.
 - **multimedia-learning-design**: learned signaling, contiguity, coherence and segmentation; applied in `references/content-contract.md`.
 - **ship-learn-next**: learned to end passive content with concrete practice and reflection; adapted into a lightweight recall/action section.
+- **starline-pdf-essence**: learned a practical 2-minute overview and ordered core reading line; adapted into a cross-format learning loop with hidden answers and local review state.
 
 Catalog signals and limitations are recorded in `reports/prior-art-research.md`; repository stars are not ratings.
 
@@ -21,6 +22,7 @@ Catalog signals and limitations are recorded in `reports/prior-art-research.md`;
 - **adapt**: provider-specific video analysis became a capability-based evidence ladder; general multimedia-page planning became a learning-note contract.
 - **reject**: automatic media generation, fixed image/audio/video quotas, remote execution and forced multi-week learning plans.
 - **invent**: cross-format source locators, source fact/inference/advice separation, a standard-library PPTX/TXT extractor, and a safe HTML renderer.
+- **invent**: a six-step retention-oriented learning loop that separates “reviewed” from “mastered” and keeps teach-back/review state local-only.
 
 ## Advantages and highlights
 
@@ -30,7 +32,8 @@ Catalog signals and limitations are recorded in `reports/prior-art-research.md`;
 - **Validated advantage**: trigger eval, unit tests, package validation, direct local install check and sample HTML structure checks are recorded by generated reports.
 - **Validated advantage**: path portability tests confirm that package text contains no developer-specific home path and generated source/resource identifiers are relative or filename-only.
 - **Hypothesis**: the learning structure may improve retention; learner study is missing evidence.
+- **Design advantage**: retrieval, teach-back, transfer and adjustable spacing are now delivery gates rather than optional page-end decorations.
 
 ## Verification and limits
 
-For v1.3.0, package validation, trigger evaluation (15/15) and all 11 unit tests passed. The full release check correctly remains blocked because this local Skill directory is not itself a Git repository or feature branch; no publication was requested or attempted. Public v1.0.3 feature-branch, PR, Release, discovery and isolated-install gates are historical evidence only. The v1.3.0 contract and regression test require the new optimization stage, but a controlled learner comparison showing improved outcomes remains missing evidence. Live transcript retrieval, image licensing review on a real customer job, cross-browser review and learner evaluation remain missing evidence. The skill never publishes, deploys, downloads protected media or writes outside the scoped output directory without explicit authorization.
+For v1.5.0, package validation, the 15/15 trigger eval and all 13 unit tests passed. The local release check passed package consistency, secret scan and tests, but publication gates are blocked because the installed Skill directory is not a Git repository or feature branch; publication was not requested. Catalog discovery also failed on the Windows `npx`/proxy path, so current popularity and rating comparisons remain missing evidence. A controlled learner comparison showing improved outcomes, live transcript retrieval, cross-browser human review and real-customer licensing review also remain missing evidence. The skill never publishes, deploys, downloads protected media or writes outside the scoped output directory without explicit authorization.

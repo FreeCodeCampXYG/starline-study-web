@@ -1,0 +1,632 @@
+{
+  "ok": true,
+  "complete": false,
+  "researched_at": "2026-08-14",
+  "queries": [
+    "learning note web UX",
+    "study guide information architecture",
+    "accessible responsive web design"
+  ],
+  "metric_semantics": {
+    "skills_sh_installs": "ecosystem install telemetry; not ratings or correctness",
+    "skillsmp_repo_stars": "GitHub repository stars; not installs, ratings, or skill-specific quality",
+    "cross_catalog_score": "not calculated; metrics remain separate"
+  },
+  "query_runs": [
+    {
+      "query": "learning note web UX",
+      "skills_sh": "not_run",
+      "skillsmp": "ok",
+      "skillsmp_candidates": 2
+    },
+    {
+      "query": "study guide information architecture",
+      "skills_sh": "not_run",
+      "skillsmp": "ok",
+      "skillsmp_candidates": 8
+    },
+    {
+      "query": "accessible responsive web design",
+      "skills_sh": "not_run",
+      "skillsmp": "ok",
+      "skillsmp_candidates": 9
+    }
+  ],
+  "candidate_family_count": 19,
+  "candidates": [
+    {
+      "family_key": "affaan-m/ecc:continuous-learning",
+      "queries": [
+        "learning note web UX"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "continuous-learning",
+        "author": "affaan-m",
+        "description": "[OBSOLETO - usar continuous-learning-v2] Extractor de skill por hook Stop v1 heredado. v2 es un superconjunto estricto con aprendizaje basado en instintos, con alcance de proyecto y hooks confiables. No invocar v1; dirigir solicitudes de aprendizaje continuo, aprendizaje de sesión y extracción de patrones a continuous-learning-v2.",
+        "content_language": "es",
+        "github_url": "https://github.com/affaan-m/ECC/tree/main/docs/es/skills/continuous-learning",
+        "skillsmp_url": "https://skillsmp.com/creators/affaan-m/ecc/docs-es-skills-continuous-learning",
+        "repo_stars": 239656,
+        "catalog_updated_at": "2026-06-07T05:26:42+00:00",
+        "source_key": "affaan-m/ecc:docs/es/skills/continuous-learning",
+        "family_key": "affaan-m/ecc:continuous-learning",
+        "aliases": [
+          {
+            "language": "ja",
+            "github_url": "https://github.com/affaan-m/ECC/tree/main/docs/ja-JP/skills/continuous-learning"
+          },
+          {
+            "language": "ko",
+            "github_url": "https://github.com/affaan-m/ECC/tree/main/docs/ko-KR/skills/continuous-learning"
+          },
+          {
+            "language": "tur",
+            "github_url": "https://github.com/affaan-m/ECC/tree/main/docs/tr/skills/continuous-learning"
+          },
+          {
+            "language": "zh",
+            "github_url": "https://github.com/affaan-m/ECC/tree/main/docs/zh-CN/skills/continuous-learning"
+          },
+          {
+            "language": "ja",
+            "github_url": "https://github.com/affaan-m/ECC/tree/main/docs/ja-JP/skills/continuous-learning"
+          },
+          {
+            "language": "ko",
+            "github_url": "https://github.com/affaan-m/ECC/tree/main/docs/ko-KR/skills/continuous-learning"
+          },
+          {
+            "language": "tur",
+            "github_url": "https://github.com/affaan-m/ECC/tree/main/docs/tr/skills/continuous-learning"
+          },
+          {
+            "language": "zh",
+            "github_url": "https://github.com/affaan-m/ECC/tree/main/docs/zh-CN/skills/continuous-learning"
+          }
+        ],
+        "query": "learning note web UX"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "affaan-m/ecc:continuous-learning-v2",
+      "queries": [
+        "learning note web UX"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "continuous-learning-v2",
+        "author": "affaan-m",
+        "description": "Sistema de aprendizaje basado en instintos que observa sesiones mediante hooks, crea instintos atómicos con puntuación de confianza y los evoluciona en skills/comandos/agentes. v2.1 agrega instintos con alcance de proyecto para prevenir contaminación entre proyectos.",
+        "content_language": "es",
+        "github_url": "https://github.com/affaan-m/ECC/tree/main/docs/es/skills/continuous-learning-v2",
+        "skillsmp_url": "https://skillsmp.com/creators/affaan-m/ecc/docs-es-skills-continuous-learning-v2",
+        "repo_stars": 239656,
+        "catalog_updated_at": "2026-06-07T05:26:42+00:00",
+        "source_key": "affaan-m/ecc:docs/es/skills/continuous-learning-v2",
+        "family_key": "affaan-m/ecc:continuous-learning-v2",
+        "aliases": [
+          {
+            "language": "ja",
+            "github_url": "https://github.com/affaan-m/ECC/tree/main/docs/ja-JP/skills/continuous-learning-v2"
+          },
+          {
+            "language": "ko",
+            "github_url": "https://github.com/affaan-m/ECC/tree/main/docs/ko-KR/skills/continuous-learning-v2"
+          },
+          {
+            "language": "tur",
+            "github_url": "https://github.com/affaan-m/ECC/tree/main/docs/tr/skills/continuous-learning-v2"
+          },
+          {
+            "language": "zh",
+            "github_url": "https://github.com/affaan-m/ECC/tree/main/docs/zh-CN/skills/continuous-learning-v2"
+          },
+          {
+            "language": "ja",
+            "github_url": "https://github.com/affaan-m/ECC/tree/main/docs/ja-JP/skills/continuous-learning-v2"
+          },
+          {
+            "language": "ko",
+            "github_url": "https://github.com/affaan-m/ECC/tree/main/docs/ko-KR/skills/continuous-learning-v2"
+          },
+          {
+            "language": "tur",
+            "github_url": "https://github.com/affaan-m/ECC/tree/main/docs/tr/skills/continuous-learning-v2"
+          },
+          {
+            "language": "zh",
+            "github_url": "https://github.com/affaan-m/ECC/tree/main/docs/zh-CN/skills/continuous-learning-v2"
+          }
+        ],
+        "query": "learning note web UX"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "microsoft/vscode:accessibility",
+      "queries": [
+        "accessible responsive web design"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "accessibility",
+        "author": "microsoft",
+        "description": "Primary accessibility skill for VS Code. REQUIRED for new feature and contribution work, and also applies to updates of existing UI. Covers accessibility help dialogs, accessible views, verbosity settings, signals, ARIA announcements, keyboard navigation, and ARIA labels/roles.",
+        "content_language": "en",
+        "github_url": "https://github.com/microsoft/vscode/tree/main/.github/skills/accessibility",
+        "skillsmp_url": "https://skillsmp.com/creators/microsoft/vscode/github-skills-accessibility",
+        "repo_stars": 188623,
+        "catalog_updated_at": "2026-03-13T18:42:51+00:00",
+        "source_key": "microsoft/vscode:.github/skills/accessibility",
+        "family_key": "microsoft/vscode:accessibility",
+        "aliases": [],
+        "query": "accessible responsive web design"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "nextlevelbuilder/ui-ux-pro-max-skill:ui-styling",
+      "queries": [
+        "accessible responsive web design"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "ui-styling",
+        "author": "nextlevelbuilder",
+        "description": "Create beautiful, accessible user interfaces with shadcn/ui components (built on Radix UI + Tailwind), Tailwind CSS utility-first styling, and canvas-based visual designs. Use when building user interfaces, implementing design systems, creating responsive layouts, adding accessible components (dialogs, dropdowns, forms, tables), customizing themes and colors, implementing dark mode, generating visual designs and posters, or establishing consistent styling patterns across applications.",
+        "content_language": "en",
+        "github_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/main/.claude/skills/ui-styling",
+        "skillsmp_url": "https://skillsmp.com/creators/nextlevelbuilder/ui-ux-pro-max-skill/claude-skills-ui-styling",
+        "repo_stars": 116035,
+        "catalog_updated_at": "2026-07-27T06:01:28+00:00",
+        "source_key": "nextlevelbuilder/ui-ux-pro-max-skill:.claude/skills/ui-styling",
+        "family_key": "nextlevelbuilder/ui-ux-pro-max-skill:ui-styling",
+        "aliases": [
+          {
+            "language": "en",
+            "github_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/main/cli/assets/skills/ui-styling"
+          },
+          {
+            "language": "en",
+            "github_url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/main/cli/assets/skills/ui-styling"
+          }
+        ],
+        "query": "accessible responsive web design"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "stirling-tools/stirling-pdf:pr-quiz",
+      "queries": [
+        "study guide information architecture"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "pr-quiz",
+        "author": "Stirling-Tools",
+        "description": "Quiz the PR author on their own branch before they request review, to prove they actually understand the change - especially code an AI wrote for them. Scopes the branch diff vs its base, reads the changed code, then asks graded questions about what changed, why, how it works, what it could break, and which edge cases it must handle. Presents all questions first, waits for the author's answers, then grades each honestly against the real code (Correct / Partial / Incorrect with the true answer and file:line), scores it, and gives a readiness verdict that names the areas to re-study before asking humans to review. Use when asked to quiz me on my PR/branch, \"test my understanding before review\", a self-check gate before opening a PR, or before requesting reviewers. Administered as an interactive multiple-choice quiz (clickable options) by default; pass --free-text for written answers, --questions N to set count, --save to write a scorecard.",
+        "content_language": "en",
+        "github_url": "https://github.com/Stirling-Tools/Stirling-PDF/tree/main/.claude/skills/pr-quiz",
+        "skillsmp_url": "https://skillsmp.com/creators/stirling-tools/stirling-pdf/claude-skills-pr-quiz",
+        "repo_stars": 89372,
+        "catalog_updated_at": "2026-07-24T09:37:10+00:00",
+        "source_key": "stirling-tools/stirling-pdf:.claude/skills/pr-quiz",
+        "family_key": "stirling-tools/stirling-pdf:pr-quiz",
+        "aliases": [],
+        "query": "study guide information architecture"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "addyosmani/agent-skills:frontend-ui-engineering",
+      "queries": [
+        "accessible responsive web design"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "frontend-ui-engineering",
+        "author": "addyosmani",
+        "description": "Builds production-quality, accessible, responsive user-facing UIs. Use when building or modifying interfaces and pages, creating components, implementing layouts, meeting WCAG accessibility requirements, managing state, or when the output needs to look and feel production-quality rather than AI-generated.",
+        "content_language": "en",
+        "github_url": "https://github.com/addyosmani/agent-skills/tree/main/skills/frontend-ui-engineering",
+        "skillsmp_url": "https://skillsmp.com/creators/addyosmani/agent-skills/skills-frontend-ui-engineering",
+        "repo_stars": 86492,
+        "catalog_updated_at": "2026-08-07T11:27:44+00:00",
+        "source_key": "addyosmani/agent-skills:skills/frontend-ui-engineering",
+        "family_key": "addyosmani/agent-skills:frontend-ui-engineering",
+        "aliases": [],
+        "query": "accessible responsive web design"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "nexu-io/open-design:blog-post",
+      "queries": [
+        "study guide information architecture"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "blog-post",
+        "author": "nexu-io",
+        "description": "A long-form article / blog post — masthead, hero image placeholder,\narticle body with figures and pull quotes, author byline, related posts.\nUse when the brief asks for \"blog\", \"article\", \"post\", \"essay\", or\n\"case study\".",
+        "content_language": "en",
+        "github_url": "https://github.com/nexu-io/open-design/tree/main/design-templates/blog-post",
+        "skillsmp_url": "https://skillsmp.com/creators/nexu-io/open-design/design-templates-blog-post",
+        "repo_stars": 85269,
+        "catalog_updated_at": "2026-07-27T14:02:48+00:00",
+        "source_key": "nexu-io/open-design:design-templates/blog-post",
+        "family_key": "nexu-io/open-design:blog-post",
+        "aliases": [
+          {
+            "language": "en",
+            "github_url": "https://github.com/nexu-io/open-design/tree/main/plugins/_official/examples/blog-post"
+          },
+          {
+            "language": "en",
+            "github_url": "https://github.com/nexu-io/open-design/tree/main/plugins/_official/examples/blog-post"
+          }
+        ],
+        "query": "study guide information architecture"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "nexu-io/open-design:hallmark",
+      "queries": [
+        "study guide information architecture"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "hallmark",
+        "author": "nexu-io",
+        "description": "Anti-AI-slop design skill for greenfield pages, audits, redesigns, and design extraction from URLs or screenshots. Use when the user asks to build a new app or landing page, wants to redesign something, invokes Hallmark by name, or uses audit/redesign/study.",
+        "content_language": "en",
+        "github_url": "https://github.com/nexu-io/open-design/tree/main/plugins/community/hallmark",
+        "skillsmp_url": "https://skillsmp.com/creators/nexu-io/open-design/plugins-community-hallmark",
+        "repo_stars": 85269,
+        "catalog_updated_at": "2026-07-31T02:35:18+00:00",
+        "source_key": "nexu-io/open-design:plugins/community/hallmark",
+        "family_key": "nexu-io/open-design:hallmark",
+        "aliases": [],
+        "query": "study guide information architecture"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "nexu-io/open-design:html-ppt-zhangzara-raw-grid",
+      "queries": [
+        "study guide information architecture"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "html-ppt-zhangzara-raw-grid",
+        "author": "nexu-io",
+        "description": "A brutalist poster-series case study for a music festival — the concept, the system, and how it scaled across formats. Built as a decision-grade design craft deck for design peers, client.",
+        "content_language": "en",
+        "github_url": "https://github.com/nexu-io/open-design/tree/main/design-templates/html-ppt-zhangzara-raw-grid",
+        "skillsmp_url": "https://skillsmp.com/creators/nexu-io/open-design/design-templates-html-ppt-zhangzara-raw-grid",
+        "repo_stars": 85269,
+        "catalog_updated_at": "2026-07-10T09:41:47+00:00",
+        "source_key": "nexu-io/open-design:design-templates/html-ppt-zhangzara-raw-grid",
+        "family_key": "nexu-io/open-design:html-ppt-zhangzara-raw-grid",
+        "aliases": [
+          {
+            "language": "en",
+            "github_url": "https://github.com/nexu-io/open-design/tree/main/plugins/_official/examples/html-ppt-zhangzara-raw-grid"
+          },
+          {
+            "language": "en",
+            "github_url": "https://github.com/nexu-io/open-design/tree/main/plugins/_official/examples/html-ppt-zhangzara-raw-grid"
+          }
+        ],
+        "query": "study guide information architecture"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "nexu-io/open-design:huashu-luxe-whitespace",
+      "queries": [
+        "study guide information architecture"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "huashu-luxe-whitespace",
+        "author": "nexu-io",
+        "description": "A market-entry study for a luxury skincare brand entering Asia — segmentation, positioning, channel, and the phased plan. Built as a decision-grade consulting deck for client leadership.",
+        "content_language": "en",
+        "github_url": "https://github.com/nexu-io/open-design/tree/main/plugins/_official/examples/huashu-luxe-whitespace",
+        "skillsmp_url": "https://skillsmp.com/creators/nexu-io/open-design/plugins-official-examples-huashu-luxe-whitespace",
+        "repo_stars": 85269,
+        "catalog_updated_at": "2026-07-14T08:43:57+00:00",
+        "source_key": "nexu-io/open-design:plugins/_official/examples/huashu-luxe-whitespace",
+        "family_key": "nexu-io/open-design:huashu-luxe-whitespace",
+        "aliases": [],
+        "query": "study guide information architecture"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "nexu-io/open-design:shadcn-ui",
+      "queries": [
+        "accessible responsive web design"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "shadcn-ui",
+        "author": "nexu-io",
+        "description": "Build UI components with shadcn/ui. Pairs with the Stitch design loop to ship structured, accessible components quickly.",
+        "content_language": "en",
+        "github_url": "https://github.com/nexu-io/open-design/tree/main/skills/shadcn-ui",
+        "skillsmp_url": "https://skillsmp.com/creators/nexu-io/open-design/skills-shadcn-ui",
+        "repo_stars": 85269,
+        "catalog_updated_at": "2026-05-11T09:48:34+00:00",
+        "source_key": "nexu-io/open-design:skills/shadcn-ui",
+        "family_key": "nexu-io/open-design:shadcn-ui",
+        "aliases": [],
+        "query": "accessible responsive web design"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "netdata/netdata:project-snmp-profiles-authoring",
+      "queries": [
+        "accessible responsive web design"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "project-snmp-profiles-authoring",
+        "author": "netdata",
+        "description": "Use when editing Netdata SNMP profile YAMLs, topology SNMP profiles, ddsnmp profile parsing, or profile-format documentation. Requires checking source MIB field accessibility, especially MAX-ACCESS not-accessible INDEX objects, before adding or changing profile symbols.",
+        "content_language": "en",
+        "github_url": "https://github.com/netdata/netdata/tree/master/.agents/skills/project-snmp-profiles-authoring",
+        "skillsmp_url": "https://skillsmp.com/creators/netdata/netdata/agents-skills-project-snmp-profiles-authoring",
+        "repo_stars": 80144,
+        "catalog_updated_at": "2026-05-09T16:35:08+00:00",
+        "source_key": "netdata/netdata:.agents/skills/project-snmp-profiles-authoring",
+        "family_key": "netdata/netdata:project-snmp-profiles-authoring",
+        "aliases": [],
+        "query": "accessible responsive web design"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "bytedance/deer-flow:academic-paper-review",
+      "queries": [
+        "study guide information architecture"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "academic-paper-review",
+        "author": "bytedance",
+        "description": "Use this skill when the user requests to review, analyze, critique, or summarize academic papers, research articles, preprints, or scientific publications. Supports comprehensive structured reviews covering methodology assessment, contribution evaluation, literature positioning, and constructive feedback generation. Trigger on queries involving paper URLs, uploaded PDFs, arXiv links, or requests like \"review this paper\", \"analyze this research\", \"summarize this study\", or \"write a peer review\".",
+        "content_language": "en",
+        "github_url": "https://github.com/bytedance/deer-flow/tree/main/skills/public/academic-paper-review",
+        "skillsmp_url": "https://skillsmp.com/creators/bytedance/deer-flow/skills-public-academic-paper-review",
+        "repo_stars": 79808,
+        "catalog_updated_at": "2026-04-05T02:19:35+00:00",
+        "source_key": "bytedance/deer-flow:skills/public/academic-paper-review",
+        "family_key": "bytedance/deer-flow:academic-paper-review",
+        "aliases": [],
+        "query": "study guide information architecture"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "thedaviddias/front-end-checklist:accessible-authentication",
+      "queries": [
+        "accessible responsive web design"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "accessible-authentication",
+        "author": "thedaviddias",
+        "description": "Use when reviewing sign-in, sign-up, MFA, CAPTCHA, recovery, and re-auth flows. Evaluate the full authentication path, including error handling and backup methods, not just the primary login form.",
+        "content_language": "en",
+        "github_url": "https://github.com/thedaviddias/Front-End-Checklist/tree/main/skills/accessible-authentication",
+        "skillsmp_url": "https://skillsmp.com/creators/thedaviddias/front-end-checklist/skills-accessible-authentication",
+        "repo_stars": 73510,
+        "catalog_updated_at": "2026-05-29T21:54:06+00:00",
+        "source_key": "thedaviddias/front-end-checklist:skills/accessible-authentication",
+        "family_key": "thedaviddias/front-end-checklist:accessible-authentication",
+        "aliases": [],
+        "query": "accessible responsive web design"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "thedaviddias/front-end-checklist:accessible-notifications",
+      "queries": [
+        "accessible responsive web design"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "accessible-notifications",
+        "author": "thedaviddias",
+        "description": "Use when reviewing templates, rendered HTML, or shared components related to Make notifications accessible. Validate the final browser-facing markup, not just the source framework abstraction.",
+        "content_language": "en",
+        "github_url": "https://github.com/thedaviddias/Front-End-Checklist/tree/main/skills/accessible-notifications",
+        "skillsmp_url": "https://skillsmp.com/creators/thedaviddias/front-end-checklist/skills-accessible-notifications",
+        "repo_stars": 73510,
+        "catalog_updated_at": "2026-05-29T21:54:06+00:00",
+        "source_key": "thedaviddias/front-end-checklist:skills/accessible-notifications",
+        "family_key": "thedaviddias/front-end-checklist:accessible-notifications",
+        "aliases": [],
+        "query": "accessible responsive web design"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "thedaviddias/front-end-checklist:accessible-tables",
+      "queries": [
+        "accessible responsive web design"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "accessible-tables",
+        "author": "thedaviddias",
+        "description": "Use when reviewing rendered HTML, interactive components, or design-system patterns related to Use semantic table markup for screen readers. Check native semantics first, then inspect keyboard behavior, focus flow, accessible names, and screen-reader output where relevant.",
+        "content_language": "en",
+        "github_url": "https://github.com/thedaviddias/Front-End-Checklist/tree/main/skills/accessible-tables",
+        "skillsmp_url": "https://skillsmp.com/creators/thedaviddias/front-end-checklist/skills-accessible-tables",
+        "repo_stars": 73510,
+        "catalog_updated_at": "2026-05-29T21:54:06+00:00",
+        "source_key": "thedaviddias/front-end-checklist:skills/accessible-tables",
+        "family_key": "thedaviddias/front-end-checklist:accessible-tables",
+        "aliases": [],
+        "query": "accessible responsive web design"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "thedaviddias/front-end-checklist:accessible-tooltips",
+      "queries": [
+        "accessible responsive web design"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "accessible-tooltips",
+        "author": "thedaviddias",
+        "description": "Use when reviewing templates, rendered HTML, or shared components related to Create accessible tooltips. Validate the final browser-facing markup, not just the source framework abstraction.",
+        "content_language": "en",
+        "github_url": "https://github.com/thedaviddias/Front-End-Checklist/tree/main/skills/accessible-tooltips",
+        "skillsmp_url": "https://skillsmp.com/creators/thedaviddias/front-end-checklist/skills-accessible-tooltips",
+        "repo_stars": 73510,
+        "catalog_updated_at": "2026-05-29T21:54:06+00:00",
+        "source_key": "thedaviddias/front-end-checklist:skills/accessible-tooltips",
+        "family_key": "thedaviddias/front-end-checklist:accessible-tooltips",
+        "aliases": [],
+        "query": "accessible responsive web design"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "rohitg00/ai-engineering-from-scratch:start-learning",
+      "queries": [
+        "study guide information architecture"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "start-learning",
+        "author": "rohitg00",
+        "description": "One-time onboarding for the AI Engineering from Scratch curriculum (503 lessons, 20 phases). Interviews the learner, runs the placement quiz, and writes LEARNING.md — a persistent study plan the /learn skill drives. Trigger phrases: \"start learning\", \"set up the course\", \"begin the curriculum\", \"onboard me\", \"create my learning plan\"",
+        "content_language": "en",
+        "github_url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/.claude/skills/start-learning",
+        "skillsmp_url": "https://skillsmp.com/creators/rohitg00/ai-engineering-from-scratch/claude-skills-start-learning",
+        "repo_stars": 46582,
+        "catalog_updated_at": "2026-08-02T20:57:30+00:00",
+        "source_key": "rohitg00/ai-engineering-from-scratch:.claude/skills/start-learning",
+        "family_key": "rohitg00/ai-engineering-from-scratch:start-learning",
+        "aliases": [],
+        "query": "study guide information architecture"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "sickn33/antigravity-awesome-skills:riffkit",
+      "queries": [
+        "study guide information architecture"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "riffkit",
+        "author": "sickn33",
+        "description": "Riff a winning TikTok into your own short video — study a proven video's emotion formula and regenerate it with your product, character, and language (EN/ES). Also makes UGC ad creative.",
+        "content_language": "en",
+        "github_url": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/riffkit",
+        "skillsmp_url": "https://skillsmp.com/creators/sickn33/antigravity-awesome-skills/skills-riffkit",
+        "repo_stars": 42129,
+        "catalog_updated_at": "2026-07-01T11:29:49+00:00",
+        "source_key": "sickn33/antigravity-awesome-skills:skills/riffkit",
+        "family_key": "sickn33/antigravity-awesome-skills:riffkit",
+        "aliases": [],
+        "query": "study guide information architecture"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    }
+  ],
+  "missing_evidence": [],
+  "next_steps": [
+    "shortlist by job relevance and role coverage, not combined popularity",
+    "open canonical GitHub source and inspect SKILL.md before adoption",
+    "verify license, maintenance, permissions, security, duplication, and rating evidence",
+    "write keep/adapt/reject/invent synthesis before authoring"
+  ]
+}

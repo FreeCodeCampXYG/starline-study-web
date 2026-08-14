@@ -32,3 +32,11 @@
 - No user rating/review source was available.
 - No live public-video transcript provider run was performed.
 - No blind learner study, accessibility audit, or cross-browser human review was performed.
+
+## 2026-08-14 learning-loop addendum
+
+- New intent queries: `learning science study notes retrieval practice`; `spaced repetition active recall education`; `interactive study guide web`.
+- The unified catalog runner failed because its Windows subprocess looked for `npx` instead of `npx.cmd`; direct skills.sh/SkillsMP calls then timed out through the configured proxy. Current catalog adoption and rating evidence are `missing evidence`.
+- Local reference inspected: `starline-pdf-essence`, specifically its 2-minute overview, ordered core reading line, recall and action structure.
+- Primary research used instead of popularity claims: [Dunlosky et al. 2013](https://doi.org/10.1177/1529100612453266) and [Roediger & Karpicke 2006](https://doi.org/10.1111/j.1467-9280.2006.01693.x).
+- `keep`: retrieval practice, distributed review and one real next action. `adapt`: teach-back as concrete self-explanation; 80/20 as navigation only. `reject`: fixed forgetting percentages, passive rereading as the main path and gamified streaks.

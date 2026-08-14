@@ -1,9 +1,9 @@
 {
   "schema_version": "2.0.0-starline-lite",
-  "generated_at": "2026-08-13",
+  "generated_at": "2026-08-14",
   "package": {
     "name": "starline-study-web",
-    "version": "1.3.0",
+    "version": "1.5.0",
     "owner": "墨点星痕 (starline)",
     "maturity_tier": "production",
     "lifecycle_stage": "new",
@@ -27,10 +27,12 @@
       "audience and depth preferences"
     ],
     "outputs": [
+      "pre-render experience brief",
       "source packet JSON",
       "structured note JSON",
-      "post-generation UX review",
+      "experience-brief regression review",
       "task-oriented standalone HTML learning note",
+      "retrieval teach-back and spaced-review learning loop",
       "bookmarked compressed PDF when requested",
       "local assets"
     ],
@@ -78,22 +80,24 @@
       "不为普通企业官网、落地页、PPT 制作、纯转录、纯摘要或视频下载任务触发。"
     ],
     "compact_workflow": [
-      "明确受众、输出语言、网页标题、深度和保存位置；用户未指定时，沿用来源语言，面向一般学习者。单个本地文档默认把正式成品放在源文件同级目录；多个来源才建立独立交付目录。",
+      "**先定义体验，再碰内容与样式。** 阅读来源概况和用户要求后，先写 `experience-brief.md`：用户、打开场景、首要任务、10 秒成功标准、唯一主行动、阅读路径、证据入口、信息密度、移动端首屏目标、明确降级的低频功能和视觉禁区。对实质性设计或用户明确要求高质量体验的任务，立即核对当前 Apple 官方设计指南、Kimi 官方公开产品界面和 1–3 个可信设计 Skill/维护活跃先例，记录 `keep / adapt / reject`。只转译内容优先、清晰层级、安静工作区、熟悉控件、自适应和渐进披露等原则，不复制品牌外观。体验简报未完成，不得开始渲染。遵循 [渲染前体验简报](references/experience-brief.md) 和 [交互与体验契约](references/visual-ux-contract.md)。",
+      "明确输出语言、网页标题、学习深度和保存位置；用户未指定时，沿用来源语言，面向一般学习者。单个本地文档默认把正式成品放在源文件同级目录；多个来源才建立独立交付目录。",
       "建立输入清单，记录每个来源的类型、可访问性、更新时间或页码/时间戳能力。只在缺少输入本身或关键访问权限时暂停。",
       "对本地 TXT/PPTX/PDF 运行 `scripts/extract_local_sources.py`。PDF 图片页按 [PDF分析与定位规则](references/pdf-analysis.md) 处理；阅读 source packet，并按 [输入分析规则](references/input-analysis.md) 处理视频链接与失败降级。生成数据只能记录文件名或相对于交付目录的 POSIX 路径，不得写入用户主目录或其他绝对路径。",
       "先逐来源提炼，再跨来源综合。为每个重要结论保留 `[Sx:定位]`；区分来源事实、合理推断和学习建议。冲突并列呈现，不强行融合。",
-      "先从用户任务而非资料目录设计阅读路径：快速开始、任务路线、核心阅读线、完整证据库。再组织快速摘要、知识结构、例子/类比、易错点、术语、主动回忆题和行动清单。为长文档建立书级、章节级、页级三级标签，并标记 `核心20%`、`支撑80%`、`行动项`、`案例`、`待验证`。遵循 [内容与视觉契约](references/content-contract.md) 和 [交互与体验契约](references/visual-ux-contract.md)。",
+      "按体验简报组织快速开始、任务路线、核心阅读线和证据库。默认闭环是 `2 分钟抓核心 → 按需深读 → 主动回忆 → 向具体对象复述 → 真实动作 → 下次复习`。答案默认折叠，复习节奏可调整；不得用固定遗忘百分比或滚动进度冒充掌握度。长文档建立书、章节、页级标签，标记 `核心20%`、`支撑80%`、`行动项`、`案例`、`待验证`；二八法则只决定阅读优先级。通用 Hero、统计墙或卡片网格只有服务首要任务时才采用。遵循 [学习方法契约](references/learning-science-contract.md) 与 [内容与视觉契约](references/content-contract.md)。",
       "为每个核心章节选择有教学作用的视觉：优先复用用户有权使用的 PPT 相关图、制作安全的 HTML/CSS 流程图/对比图/概念图，其次使用许可清晰且带来源的图片。装饰图不得替代解释。公开分发前区分网页代码作者、内容作者和素材权利人，并按 [内容与视觉契约](references/content-contract.md) 补齐署名、来源、授权边界和必要的正版入口。",
-      "写出符合 `references/note-schema.example.json` 的 UTF-8 JSON，运行 `scripts/render_study_note.py` 生成 `index.html`。不得把未转义的来源 HTML 直接写进页面。",
-      "首版网页生成后不得直接交付，执行一次[生成后 UX 优化门禁](references/visual-ux-contract.md#生成后-ux-优化门禁)：从学习者最常见的“开始学习、继续上次、搜索定位、理解重点、回到证据”任务反推首屏与导航，审计选择负担、主行动、信息密度、阅读路线、交互反馈和移动端。对于实质性设计或用户明确要求高质量体验的任务，在联网可用时核对当前 Apple 官方设计指南、Kimi 公开产品界面及 1–3 个可信设计 Skill 或维护活跃的开源先例，记录 `keep / adapt / reject`；只吸收清晰、内容优先、安静工作区、熟悉控件、自适应和渐进披露等原则，不复制品牌标识、商业外观或具体页面。列出首版的具体可用性问题，完成修正后再进入最终校验。",
+      "写出符合 `references/note-schema.example.json` 的 UTF-8 JSON，运行 `scripts/render_study_note.py` 生成 `index.html`。渲染结果必须能逐项追溯到体验简报；不得把未转义的来源 HTML 直接写进页面。",
+      "首版网页生成后不得直接交付，执行一次[体验简报回归门禁](references/visual-ux-contract.md#体验简报回归门禁)：逐项比较 10 秒成功标准、唯一主行动、首屏内容、选择负担、阅读路径、证据回溯和移动端目标。列出首版的 3–6 个具体问题并修正；不得等到此时才第一次考虑用户任务或设计方向。",
       "校验网页：文件存在、无 `javascript:` URL、图片路径可读、导航与移动端布局可用、所有关键结论有来源定位、无证据限制清楚可见。使用真实设备视口验证横向溢出、任务筛选、弹层打开及各关闭路径、阅读进度和收藏持久化；检查页面自身脚本无递归或未捕获异常，并按 [交互与体验契约](references/visual-ux-contract.md) 区分网页错误与浏览器扩展错误。命令行窗口尺寸截图不能代替设备视口。必要时修复后再交付。"
     ],
     "gate_ladder": [
+      "体验定义 gate：`experience-brief.md` 已回答用户、场景、首要任务、10 秒成功、唯一主行动、阅读路径、证据入口、移动端目标、降级项与视觉禁区；实质设计任务已记录先例的 `keep / adapt / reject` 或明确 `missing evidence`。",
       "输入 gate：至少一个来源真实可读，且记录无法访问的来源。",
       "证据 gate：核心结论可回溯到文件行段、幻灯片页或视频时间戳/字幕段。",
-      "学习 gate：网页不只是摘要，还包含结构、重点、主动回忆和下一步。",
+      "学习 gate：网页不只是摘要，还包含核心阅读线、默认隐藏答案的主动回忆、面向具体对象的复述、真实迁移动作和可调整的间隔复习；无法证明的长期保持效果标为 `missing evidence`。",
       "视觉 gate：视觉与相邻知识点直接相关，具备 alt 文本和必要图注。",
-      "生成后 UX 优化 gate：首屏首先服务学习而非展示主题、品牌或统计；只有一个主行动；搜索、继续学习和证据回溯容易发现；样式设置、来源权利和高级工具按任务频率渐进披露；Apple/Kimi 仅作原则校准，不作品牌复刻。",
+      "体验回归 gate：首屏首先服务学习而非展示主题、品牌或统计；只有一个主行动；搜索、继续学习和证据回溯容易发现；样式设置、来源权利和高级工具按任务频率渐进披露；Apple/Kimi 仅作原则校准，不作品牌复刻。",
       "页面 gate：本地打开不报错，响应式布局可读，脚本不依赖秘密或远程执行。",
       "公开发布网页 gate：仅在 GitHub Pages 或其他公开站点交付时启用；明确区分代码署名、内容作者与素材权利，确保代码许可不自动覆盖课件图片、文字摘录、整理数据、二维码或第三方标识，并完成所有弹层关闭路径和页面控制台回归。"
     ],
@@ -101,11 +105,11 @@
       "默认正式交付一个可独立打开的单文件 HTML，名称与源文档对应并放在源文件同级目录。JSON、assets 和 source packet 属于可复现的工作产物，可放入同级辅助目录，但不能要求用户依赖它们才能打开正式网页。",
       "首页必须包含标题、来源范围、证据限制、3–7 条关键收获和章节导航。",
       "长文档页面必须提供搜索、标签筛选、页码跳转和原页预览；任一摘要或批注都能回到对应页。",
-      "学习型长文档默认提供任务入口、核心阅读线和可见进度；阅读状态只在本地保存，不得静默上传。",
-      "最终网页必须经过一次生成后 UX 优化：交付摘要列出首版发现的 3–6 个具体可用性问题、实际修正和已完成的浏览器检查；未完成的外部先例研究、跨浏览器检查或真人评审必须标为 `missing evidence`，不得笼统宣称“已达到 Apple/Kimi 水准”。",
+      "学习型长文档默认提供任务入口、核心阅读线和可见进度；阅读状态、复述草稿和复习记录只在本地保存，不得静默上传。",
+      "正式渲染前必须生成 `experience-brief.md`；最终网页必须经过一次对照简报的 UX 回归：交付摘要列出首版发现的 3–6 个具体可用性问题、实际修正和已完成的浏览器检查；未完成的外部先例研究、跨浏览器检查或真人评审必须标为 `missing evidence`，不得笼统宣称“已达到 Apple/Kimi 水准”。",
       "若交付压缩版 PDF，必须同时验证页数、章节书签标题和书签目标页。",
       "每个核心章节包含：一句结论、解释、关键点、视觉或明确的无图理由、来源引用。",
-      "页面末尾包含术语表、主动回忆题、行动清单和来源表。",
+      "页面末尾包含术语表、主动回忆题、复述练习、行动清单、可调整的复习计划和来源表；参考答案默认折叠，不能要求先看答案再作答。",
       "署名必须按角色表达，例如 `Code by starline` 与“内容来源/内容作者”分开；不得擅自增加学校、机构、联合作者或官方背书。",
       "使用开源代码许可时采用分层授权：只许可原创代码，并明确排除来源图片、文字摘录、内容数据、二维码和第三方标识。侵权联系与删除说明可以降低误解，但不能表述为已获得授权或法律免责。",
       "来源引用格式为 `[S1:slide 4]`、`[S2:lines 20-35]` 或 `[S3:12:30-14:05]`；无法精确定位时用 `[S3:description]` 并标为有限证据。",
@@ -122,7 +126,9 @@
   "resources": {
     "references": [
       "references\\content-contract.md",
+      "references\\experience-brief.md",
       "references\\input-analysis.md",
+      "references\\learning-science-contract.md",
       "references\\note-schema.example.json",
       "references\\pdf-analysis.md",
       "references\\visual-ux-contract.md"
@@ -134,21 +140,26 @@
       "scripts\\render_study_note.py"
     ],
     "evals": [
+      "evals\\output_cases.json",
       "evals\\trigger_cases.json"
     ],
     "reports": [
       "reports\\creation-handoff.md",
       "reports\\install-check.json",
       "reports\\output-evidence.json",
+      "reports\\prior-art-candidates-v1.4.0.json",
       "reports\\prior-art-research.md",
       "reports\\release-check-v1.1.0.json",
       "reports\\release-check-v1.3.0.json",
+      "reports\\release-check-v1.5.0.json",
       "reports\\sample-note.html",
       "reports\\skill-ir.json",
       "reports\\trigger-eval.json",
       "reports\\v1.1.0-iteration.md",
       "reports\\v1.2.0-iteration.md",
-      "reports\\v1.3.0-iteration.md"
+      "reports\\v1.3.0-iteration.md",
+      "reports\\v1.4.0-ux-first-research.md",
+      "reports\\v1.5.0-learning-science-research.md"
     ]
   },
   "portability": {
@@ -193,7 +204,9 @@
       "at least one readable source",
       "source locator for every core claim",
       "visual relevance and alt text",
-      "post-generation learner-task UX optimization",
+      "experience-brief regression after first render",
+      "retrieval, teach-back, transfer, and adjustable spaced-review loop",
+      "pre-render experience brief",
       "passing trigger eval and script tests",
       "responsive local HTML delivery"
     ]

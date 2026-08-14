@@ -2,7 +2,7 @@ interface:
   display_name: "Starline Study Web"
   author: "墨点星痕 (starline)"
   short_description: "将 TXT、PDF、PPTX 和公开视频整理为带页码标签的图文学习网页"
-  default_prompt: "Use $starline-study-web to inspect supplied TXT, PDF, PPT/PPTX, or public video links; preserve line, page, slide, transcript, and timestamp provenance; create book, section, and page tags; mark the core 20 percent; and build a searchable responsive HTML study page with source-page preview and visible evidence limits. After the first working render, run the post-generation UX optimization gate: audit real learner tasks, first-screen hierarchy, decision load, progressive disclosure, accessibility, and mobile behavior; when appropriate, research current official Apple guidance, Kimi's public interface, and credible design skills as principles rather than brand imitation. Never invent inaccessible content, download protected media, or publish customer material without explicit authorization."
+  default_prompt: "Use $starline-study-web to inspect supplied TXT, PDF, PPT/PPTX, or public video links. Before outlining or rendering, create experience-brief.md that fixes the primary learner, opening context, ten-second success, one primary action, reading path, evidence return, information density, mobile first-screen target, progressive disclosure, and visual anti-patterns. For substantial design work, research current official Apple guidance, Kimi's official public interface, and credible design skills now, recording keep/adapt/reject rather than imitating brands. Then preserve line, page, slide, transcript, and timestamp provenance; mark the core 20 percent; and build a learning loop with retrieval questions whose answers are hidden by default, a specific teach-back prompt, one real transfer action, and an adjustable spaced-review plan stored only locally. Build the responsive HTML and regress the first render against the brief. Never invent inaccessible content, claim a fixed forgetting curve, download protected media, or publish customer material without explicit authorization."
   examples:
     - "把这份培训 PPT 做成图文学习笔记网页"
     - "识别这份图片型 PDF，按二八法则批注并生成可按标签定位的网页"
@@ -38,6 +38,8 @@ gates:
     - "at least one readable source"
     - "source locator for every core claim"
     - "visual relevance and alt text"
-    - "post-generation learner-task UX optimization"
+    - "experience-brief regression after first render"
+    - "retrieval, teach-back, transfer, and adjustable spaced-review loop"
+    - "pre-render experience brief"
     - "passing trigger eval and script tests"
     - "responsive local HTML delivery"
